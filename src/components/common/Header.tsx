@@ -19,7 +19,6 @@ const Header = () => {
   const wishlistItems = useAppSelector((state) => state.Wishlist.allWishList);
   const [isOpen, setIsOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [mobileUserMenuOpen, setMobileUserMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   // Close menus when clicking outside
@@ -70,7 +69,6 @@ const Header = () => {
     if (!isOpen) {
       // Close user menu when opening mobile menu
       setUserMenuOpen(false);
-      setMobileUserMenuOpen(false);
     }
   };
 

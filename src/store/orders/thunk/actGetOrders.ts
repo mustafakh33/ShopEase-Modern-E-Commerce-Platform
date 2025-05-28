@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosErrorHandler } from "@utils";
-import axios from "axios";
 import baseUrl from "src/Api/baseURL";
 import { IOrderItem } from "src/types/order";
 

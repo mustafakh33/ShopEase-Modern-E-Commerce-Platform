@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useParams } from "react-router";
-import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { useAppSelector } from "src/store/hooks";
 import useProducts from "@hooks/useProducts";
 import useAddToCart from "@hooks/useAddToCart";
 import useWishlist from "@hooks/useWishlist";
@@ -27,9 +27,7 @@ interface UseProductDetailsReturn {
 
 const useProductDetails = (): UseProductDetailsReturn => {
   const { id } = useParams();
-  const dispatch = useAppDispatch();
   const { specificProduct: product, loading, error } = useAppSelector((state) => state.products);
-  const { loading: loadingProducts, error: errorProducts } = useProducts();
   const { updatedRecords } = useProducts();
   const [selectedImage, setSelectedImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -37,20 +35,15 @@ const useProductDetails = (): UseProductDetailsReturn => {
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState<"success" | "danger">("success");
 
-  const isAuthenticated = Boolean(useAppSelector((state) => state.auth.token));
 
-  const { addToCartHandler, isLoadingCart } = useAddToCart(
-    id ?? "",
-    isAuthenticated,
-    setShowModal
-  );
+  const { addToCartHandler, isLoadingCart } = useAddToCart(id ?? "");
 
   const {
     addWishListHandler,
     removeWishListHandler,
     isLoadingWishlist,
     isWishlisted,
-  } = useWishlist(id ?? "", isAuthenticated, setShowModal);
+  } = useWishlist(id ?? "");
 
   const similarProducts = useMemo(() => {
     if (!product || !updatedRecords.length) return [];
@@ -95,7 +88,7 @@ const useProductDetails = (): UseProductDetailsReturn => {
     }
   };
 
-  const quantityReachedToMax = product?.quantity <= 0;
+  const quantityReachedToMax = product?.quantity === 0;
 
   return {
     product,
