@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+body {
+    font-family: "JetBrains Mono", serif;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+
+:root {
+  /* الألوان الأساسية */
+  --color-dark: #212529;
+  --color-danger: #dc3545;
+  --color-primary: #0d6efd;
+  --color-success: #198754;
+  
+  /* ألوان النص */
+  --color-text: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+  
+  /* ألوان الخلفية */
+  --color-bg-dark: #212529;
+  --color-bg-light: #f8f9fa;
+  --color-bg-gray: #1f2937;
+  
+  /* ألوان الحدود */
+  --color-border: #374151;
+  --color-border-light: #e5e7eb;
+}
