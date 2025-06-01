@@ -18,8 +18,7 @@ const Payment = () => {
   }, [url]);
 
   const handleBackToCart = () => {
-    // يمكنك تعديل هذا المسار حسب route الخاص بك
-    window.history.back(); // أو يمكنك استخدام router.push('/cart') إذا كنت تستعمل Next.js
+    window.history.back(); 
   };
 
   return (
