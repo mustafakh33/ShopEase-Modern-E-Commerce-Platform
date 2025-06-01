@@ -19,7 +19,12 @@ const usePagination = <T>({ items, itemsPerPage }: UsePaginationProps<T>): UsePa
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
-    const totalPages = Math.ceil(items.length / itemsPerPage);
+    const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
+
+    // Adjust current page if it's now greater than total pages
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    }
 
     return { currentItems, totalPages };
   }, [items, currentPage, itemsPerPage]);
@@ -38,4 +43,4 @@ const usePagination = <T>({ items, itemsPerPage }: UsePaginationProps<T>): UsePa
   };
 };
 
-export default usePagination; 
+export default usePagination;
