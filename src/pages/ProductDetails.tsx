@@ -248,7 +248,7 @@ const ProductDetails = () => {
                   {isLoadingCart ? (
                     <>
                       <Spinner animation="border" size="sm" className="text-white" />
-                      <span>Adding...</span>
+                      <span>Loading...</span>
                     </>
                   ) : (
                     <>
