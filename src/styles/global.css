@@ -30,3 +30,26 @@ body {
   --color-border: #374151;
   --color-border-light: #e5e7eb;
 }
+
+/* Existing shimmer-animation for light backgrounds */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-animation {
+  animation: shimmer 1.5s infinite forwards;
+  background: linear-gradient(to right, #e2e8f0 8%, #f8fafc 18%, #e2e8f0 33%); /* Light grays */
+  background-size: 1000px 100%;
+}
+
+/* NEW: Shimmer for dark backgrounds */
+.shimmer-animation-dark {
+  animation: shimmer 1.5s infinite forwards;
+  background: linear-gradient(to right, #4b5563 8%, #6b7280 18%, #4b5563 33%); /* Darker grays */
+  background-size: 1000px 100%;
+}

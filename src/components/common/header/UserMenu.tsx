@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAppDispatch } from "@store/hooks";
 import { authLogout } from "@store/auth/authSlice";
 import { clearCart } from "@store/cart/cartSlice";
-import { clearWishlist } from "@store/wishlist/wishlistSlice";
+import { wishlistCleanUp } from "@store/wishlist/wishlistSlice";
 import { useState } from "react";
 
 interface UserMenuProps {
@@ -20,7 +20,7 @@ const UserMenu = ({  isMobile = false, onClose }: UserMenuProps) => {
     await new Promise(resolve => setTimeout(resolve, 3000));
     dispatch(authLogout());
     dispatch(clearCart());
-    dispatch(clearWishlist());
+    dispatch(wishlistCleanUp());
     if (onClose) onClose();
     setIsLoggingOut(false);
   };

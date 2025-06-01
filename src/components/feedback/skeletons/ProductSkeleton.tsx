@@ -1,45 +1,42 @@
-import ContentLoader from "react-content-loader";
-
-import { Row, Col } from "react-bootstrap";
 
 const ProductSkeleton = () => {
-  const renderList = Array(4)
-    .fill(0)
-    .map((_, idx) => (
-      <Col
-        key={idx}
-        xs={12}
-        sm={6}
-        md={4}
-        lg={3}
-        className="d-flex justify-content-center mb-5 mt-2"
-      >
-        <ContentLoader
-          speed={2}
-          width={300}
-          height={400}
-          viewBox="0 0 300 400"
-          backgroundColor="#f3f3f3"
-          foregroundColor="#ecebeb"
-        >
-          {/* صورة المنتج */}
-          <rect x="25" y="40" rx="10" ry="10" width="250" height="220" />
+  // Define a single skeleton card structure for a product
+  const SingleProductSkeleton = () => (
+    <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col h-full animate-pulse">
+    {/* Image and Badges Skeleton */}
+    <div className="relative pt-[75%] bg-gray-200">
+    </div>
 
-          {/* اسم المنتج */}
-          <rect x="50" y="270" rx="5" ry="5" width="200" height="15" />
+    {/* Product Info Skeleton */}
+    <div className="p-4 flex flex-col flex-grow">
+      {/* Title Skeleton */}
+      <div className="h-5 bg-gray-200 rounded w-full mb-2"></div>
+      <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
 
-          {/* سعر المنتج */}
-          <rect x="75" y="295" rx="5" ry="5" width="150" height="15" />
+      {/* Rating and Available Quantity Skeleton */}
+      <div className="flex justify-between items-center mb-2">
+        <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/5"></div>
+      </div>
 
-          {/* عدد العناصر التي يمكن إضافتها */}
-          <rect x="50" y="320" rx="5" ry="5" width="200" height="12" />
+      {/* Price Skeleton */}
+      <div className="mb-3">
+        <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+      </div>
 
-          {/* زر "Add to Cart" */}
-          <rect x="75" y="345" rx="20" ry="20" width="150" height="40" />
-        </ContentLoader>
-      </Col>
-    ));
-  return <Row>{renderList}</Row>;
+      {/* Add to Cart Button Skeleton */}
+      <div className="w-full h-11 bg-gray-300 rounded-xl"></div>
+    </div>
+  </div>
+  );
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {Array(8).fill(0).map((_, idx) => (
+        <SingleProductSkeleton key={idx} />
+      ))}
+    </div>
+  );
 };
 
 export default ProductSkeleton;

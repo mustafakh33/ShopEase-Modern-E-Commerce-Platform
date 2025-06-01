@@ -1,33 +1,31 @@
-import ContentLoader from "react-content-loader";
-import { Row, Col } from "react-bootstrap";
+import CartItemSkeleton from './CartItemSkeleton'; // Make sure this path is correct
+import CartSubtotalPriceSkeleton from './CartSubtotalPriceSkeleton'; // Make sure this path is correct
 
 const CartSkeleton = () => {
   return (
-    <Row>
-      <Col>
-      <ContentLoader
-        speed={2}
-        width={1296}
-        height={229}
-        viewBox="0 0 1296 229"
-        backgroundColor="#f3f3f3"
-        foregroundColor="#ecebeb"
-      >
-         {/* Cart Title */}
-        <rect x="0" y="0" rx="5" ry="5" width="1296" height="30" /> 
+    <div className="min-h-screen bg-gray-50  pb-16">
+      <div >
+        {/* Cart Content Container */}
+        <div className=" bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden animate-pulse">
 
-        {/* Cart Item 1 */}
-        <rect x="0" y="50" rx="5" ry="5" width="150" height="150" /> 
-        <rect x="170" y="50" rx="5" ry="5" width="300" height="20" /> 
-        <rect x="170" y="80" rx="5" ry="5" width="200" height="15" /> 
-        <rect x="170" y="105" rx="5" ry="5" width="100" height="15" /> 
-        <rect x="170" y="130" rx="5" ry="5" width="80" height="30" /> 
-        <rect x="260" y="130" rx="5" ry="5" width="80" height="30" /> 
-        <rect x="1000" y="50" rx="5" ry="5" width="80" height="30" /> 
-        <rect x="1000" y="90" rx="5" ry="5" width="150" height="30" /> 
-      </ContentLoader>
-      </Col>
-    </Row>
+          {/* List of Cart Items */}
+          <div className="divide-y divide-gray-200">
+            {/* Render multiple CartItemSkeletons to show a list */}
+            {Array(3).fill(0).map((_, idx) => ( // Adjust number of items as typical for a cart
+              <CartItemSkeleton key={idx} />
+            ))}
+          </div>
+
+          {/* Pagination Placeholder (if itemsPerPage > 5) */}
+          <div className="px-6 py-4 bg-gray-50 flex justify-center">
+            <div className="h-10 w-48 bg-gray-200 rounded-lg" /> {/* Pagination */}
+          </div>
+          
+          {/* Cart Subtotal Price Section */}
+          <CartSubtotalPriceSkeleton />
+        </div>
+      </div>
+    </div>
   );
 };
 

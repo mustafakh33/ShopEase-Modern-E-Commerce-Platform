@@ -28,7 +28,7 @@ const MobileMenu = ({ isOpen, onClose, user, token }: MobileMenuProps) => {
 
   return (
     <div
-      className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${
+      className={`lg:hidden transition-all duration-500 ease-in-out overflow-hidden ${
         isOpen ? "max-h-screen opacity-100 pb-4 pt-2" : "max-h-0 opacity-0 pb-0 pt-0"
       }`}
     >

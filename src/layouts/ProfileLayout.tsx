@@ -77,7 +77,7 @@ const ProfileLayout = () => {
           </Col>
           <Col lg={9}>
             <div 
-              className="bg-white rounded-xl shadow-sm p-6"
+              className="bg-white rounded-xl shadow-sm p-4  lg:p-6"
               style={{
                 border: '1px solid #e5e7eb',
                 minHeight: '500px'

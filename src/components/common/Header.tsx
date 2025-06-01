@@ -241,7 +241,7 @@ const Header = () => {
             <DesktopNav />
 
             {/* Icons & User Menu - Desktop */}
-            <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            <div className="hidden lg:flex items-center space-x-4 lg:space-x-8">
               <CartWishlistIcons
                 isLoading={isLoading}
                 cartItems={cartItems}
@@ -294,7 +294,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Right Icons & Burger Button */}
-            <div className="flex items-center space-x-4 md:hidden">
+            <div className="flex items-center space-x-4 lg:hidden">
               <CartWishlistIcons
                 isLoading={isLoading}
                 cartItems={cartItems}

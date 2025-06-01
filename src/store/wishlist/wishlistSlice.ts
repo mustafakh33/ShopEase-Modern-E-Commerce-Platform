@@ -26,7 +26,7 @@ const wishlistSlice = createSlice({
   name: "wishlist",
   initialState,
   reducers: {
-    clearWishlist: (state) => {
+    wishlistCleanUp: (state) => {
       state.allWishList = { count: 0, data: [] };
     },
     // إضافة reducer جديد لحذف المنتج محليًا
@@ -89,5 +89,5 @@ const wishlistSlice = createSlice({
   },
 });
 
-export const { clearWishlist, removeProductLocally } = wishlistSlice.actions;
+export const { wishlistCleanUp, removeProductLocally } = wishlistSlice.actions;
 export default wishlistSlice.reducer;
