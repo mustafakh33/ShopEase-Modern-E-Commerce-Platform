@@ -9,7 +9,6 @@ export const actGetAllProductInCart = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue, signal, getState } = thunkAPI;
     const { auth } = getState() as RootState;
-    console.log(auth.token)
 
     if (!auth.token) {
       return rejectWithValue("User is not authenticated");
@@ -19,7 +18,6 @@ export const actGetAllProductInCart = createAsyncThunk(
         signal,
         headers: { token: auth.token },
       });
-      console.log(response.data)
       return response.data;
     } catch (error) {
       return rejectWithValue(axiosErrorHandler(error));

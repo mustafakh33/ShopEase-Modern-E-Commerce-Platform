@@ -9,7 +9,6 @@ const actGetOrders = createAsyncThunk(
   "orders/actGetOrders",
   async (userId: string, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
-    console.log(userId);
     try {
       const res = await baseUrl.get<TResponse>(`/api/v1/orders/user/${userId}`);
 

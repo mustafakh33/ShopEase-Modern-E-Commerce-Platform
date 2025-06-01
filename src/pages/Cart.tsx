@@ -10,7 +10,7 @@ import usePagination from "@hooks/usePagination";
 import ReusableModal from "@components/common/ReusableModal";
 import actGetClearCart from "@store/cart/thunk/actGetClearCart";
 import { toast } from "react-toastify";
-import { clearCart } from "@store/cart/cartSlice";
+
 
 const Cart = () => {
   const { cartItems, loading, error } = useAppSelector((state) => state.cart);
@@ -30,7 +30,6 @@ const Cart = () => {
       toast.success("Cart cleared successfully!");
     } catch (error) {
       toast.error("Failed to clear cart. Please try again.");
-      console.error("Error clearing cart:", error);
     } finally {
       setIsClearing(false);
       setShowClearModal(false);
@@ -42,7 +41,6 @@ const Cart = () => {
     return () => {
       promise.abort();
       dispatch(resetOrderStatus());
-      dispatch(clearCart())
     };
   }, []);
 

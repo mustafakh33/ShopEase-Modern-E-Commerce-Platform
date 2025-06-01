@@ -26,7 +26,6 @@ const useWishlist = (_id: string) => {
       toast.success("Product added to wishlist successfully!");
     } catch (error) {
       toast.error("Failed to add product to wishlist. Please try again.");
-      console.error("Error adding to wishlist:", error);
     } finally {
       setIsLoadingWishlist(false);
     }
@@ -41,7 +40,6 @@ const useWishlist = (_id: string) => {
       toast.success("Product removed from wishlist successfully!");
     } catch (error) {
       toast.error("Failed to remove product from wishlist. Please try again.");
-      console.error("Error removing from wishlist:", error);
     } finally {
       setIsLoadingWishlist(false);
     }

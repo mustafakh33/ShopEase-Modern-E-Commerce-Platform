@@ -17,7 +17,6 @@ const useAddToCart = (_id: string) => {
       toast.success("Product added to cart successfully!");
     } catch (error) {
       toast.error("Failed to add product to cart. Please try again.");
-      console.error("Error adding to cart:", error);
     } finally {
       setIsLoadingCart(false);
     }

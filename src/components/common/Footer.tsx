@@ -10,7 +10,6 @@ const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Subscribed with email:', email);
     setEmail('');
   };
 

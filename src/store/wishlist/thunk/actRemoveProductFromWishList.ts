@@ -13,7 +13,6 @@ export const actRemoveProductFromWishList = createAsyncThunk(
       const response = await baseUrl.delete(`/api/v1/wishlist/${id}`, {
         headers: { token: auth.token },
       });
-      console.log(response.data)
       return response.data;
     } catch (error) {
       return rejectWithValue(axiosErrorHandler(error));

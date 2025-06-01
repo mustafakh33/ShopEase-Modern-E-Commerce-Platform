@@ -15,8 +15,7 @@ const useCheckEmailAvailability = () => {
     setEmailAvailabilityStatus("checking");
     try {
       const response = await baseUrl.get(`/api/v1/users?email=${email}`);
-      console.log(response)
-      // لو مرجع داتا معنى كدا الايميل دا مش موجود فى اقدر استخدمه
+
       if (!response.data.users.length) {
         setEmailAvailabilityStatus("available");
       } else {

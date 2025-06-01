@@ -8,7 +8,6 @@ import { productCleanUp } from "../store/products/productsSlice";
 const useProducts = () => {
   const dispatch = useAppDispatch();
   const params = useParams();
-  console.log(params)
 
   const { records, loading, error } = useAppSelector((state) => state.products);
   const cartItems = useAppSelector(

@@ -23,7 +23,6 @@ const useCart = ({ product, price, count }: ICartItem) => {
       toast.success("Item removed from cart successfully!");
     } catch (error) {
       toast.error("Failed to remove item from cart. Please try again.");
-      console.error("Error removing item from cart:", error);
     }
   };
 
@@ -56,7 +55,6 @@ const useCart = ({ product, price, count }: ICartItem) => {
       toast.success("Cart quantity updated successfully!");
     } catch (error) {
       toast.error("Failed to update cart quantity. Please try again.");
-      console.error("Error updating cart quantity:", error);
     } finally {
       setIsLoading(false);
     }

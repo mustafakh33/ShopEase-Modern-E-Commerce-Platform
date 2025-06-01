@@ -6,7 +6,6 @@ import actGetUserWishlist from "@store/wishlist/thunk/actGetUserWishlist";
 import { useEffect } from "react";
 import Pagination from "../components/common/Pagination";
 import usePagination from "@hooks/usePagination";
-import { wishlistCleanUp } from "@store/wishlist/wishlistSlice";
 
 const Wishlist = () => {
   const { allWishList, loading, error } = useAppSelector(
@@ -17,7 +16,6 @@ const Wishlist = () => {
   useEffect(() => {
     const promise = dispatch(actGetUserWishlist());
     return () => {
-      dispatch(wishlistCleanUp());
       promise.abort();
     };
   }, []);
